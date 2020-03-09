@@ -1,6 +1,8 @@
 import React from 'react';
 import UserCreate from './UserCreate'
 import LanguageContext from '../context/LanguageContext'
+import ColourContext from '../context/ColourContext'
+import LanguageSelector from './LanguageSelector'
 
 class App extends React.Component {
 
@@ -13,13 +15,11 @@ class App extends React.Component {
     render() {
         return(
             <div className="ui container">
-                <div>
-                    Select a language:
-                    <i className="flag uk" onClick={() => this.onLanguageChange('english')} />
-                    <i className="flag dk" onClick={() => this.onLanguageChange('danish')} />
-                </div>
-                <LanguageContext.Provider value={this.state.language}>
-                    <UserCreate />
+                <LanguageSelector onLanguageChange={this.onLanguageChange} /> {/*Passing a callback function down to that component, so we can receive the language clicked on from it */}
+                <LanguageContext.Provider value={this.state.language}> {/* This is how we update our context object I think.*/}
+                    <ColourContext.Provider value="primary">
+                        <UserCreate />
+                    </ColourContext.Provider>
                 </LanguageContext.Provider>
             </div>
         )
