@@ -9,7 +9,7 @@ class App extends React.Component {
     render() {
         return(
             <div className="ui container">
-                <LanguageStore>
+                <LanguageStore> {/** Gives us access to the store */}
                 <LanguageSelector />
                 {/*<LanguageContext.Provider value={this.state.language}> {/* This is how we update our context object I think.*/}
                     <ColourContext.Provider value="primary">

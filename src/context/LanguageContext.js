@@ -5,7 +5,7 @@ import React from 'react'
 const Context =  React.createContext('english'); //english is the default value that is put into the pipe
 
 export class LanguageStore extends React.Component { //It is not default export, so we have to name it using the {} when we import
-    state = {language: 'english'};
+    state = {language: 'english'}; //STore has the state instead of App
 
     onLanguageChange = (language) => {
         this.setState({ language })
